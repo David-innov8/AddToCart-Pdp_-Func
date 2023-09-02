@@ -38,7 +38,7 @@ export function Products () {
         <Navbar/>
             <div className='flex flex-wrap justify-between px-10 mt-5 -m-4'> 
             {productSlice.map((item) => (
-           <div key={item.id} className="mb-5 box-border bg-slate-50 cursor-pointer max-w-sm rounded-lg overflow-hidden shadow-lg p-4">
+           <div key={item.id} className="mb-5 box-border bg-slate-50 cursor-pointer w-80 rounded-lg overflow-hidden shadow-lg p-4">
             <Link to={`/products/${item.id}`}>
   <img className="w-full" src={item.images} alt={item.title}/>
   <div className="px-6 py-4">

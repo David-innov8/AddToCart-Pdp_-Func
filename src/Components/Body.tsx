@@ -38,7 +38,7 @@ const  Body:React.FC=() =>{
 
     const {addToCart } = useCart()
 const [image, setImage] = useState<string>(img1)
-let [count, setCount] = useState<number>(0)
+let [count, setCount] = useState<number>(1)
     const img: imgs[]=[
         {id:1, image:img1},
         {id:2, image:img2},
@@ -84,9 +84,9 @@ let [count, setCount] = useState<number>(0)
         <div className="right w-[405px] ">
                     <p className='font-bold my-2 text-[#ff7d1a]'>SNEAKER COMPANY</p>
                     <h1 className='text-3xl font-bold '>{productDetail?.title}</h1>
-                    <p className='my-5 text-sm'>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weater can offer</p>
-                    <p className='font-bold text-2xl mb-2 '>$125.00 <span className='bg-[#ffede0] px-2 py-1 rounded ml-4 text-[#ff7d1a]'>50%</span></p>
-                    <p className='line-through text-slate-400' >$250.00</p>
+                    <p className='my-5 text-sm'>{productDetail?.description}</p>
+                    <p className='font-bold text-2xl mb-2 '> ${productDetail?.price} <span className='bg-[#ffede0] px-2 py-1 rounded ml-4 text-[#ff7d1a]'>50%</span></p>
+                    <p className='line-through text-slate-400' >{productDetail?.price}</p>
 
                     <div className='flex items-center h-10 mt-3 '>
                         <div className='px-2 mr-5 flex  h-full items-center justify-between bg-[#f7f8fd] rounded-md w-[110px]'>
@@ -96,7 +96,10 @@ let [count, setCount] = useState<number>(0)
                         </div>
                         <div className='rounded-lg cursor-pointer text-white flex justify-center items-center bg-[#ff7d1a] h-full w-[250px]'>
                         <img className='mr-4' src={cart} alt=''/>
-                            <button onClick={()=>addToCart(image)} className=' '> Add to cart</button>
+                            <button onClick={()=>addToCart({
+                                productId: productDetail?.id || 0,
+                                quantity: count
+                            })} className=' '> Add to cart</button>
                         </div>
                         
                     </div>
