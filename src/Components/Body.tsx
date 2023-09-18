@@ -7,7 +7,7 @@ import img4 from '../Assets/image-product-4.jpg'
 import cart from '../Assets/icon-cart.svg'
 import { useCart } from './CartContext';
 import { Navbar } from './Navbar';
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import { useApi } from './ApiContext';
 import { cartItemsType } from './Products';
 
@@ -82,7 +82,7 @@ let [count, setCount] = useState<number>(1)
             </div>
         </div>
         <div className="right w-[405px] ">
-                    <p className='font-bold my-2 text-[#ff7d1a]'>SNEAKER COMPANY</p>
+                   <p className='font-bold my-2 text-[#ff7d1a]'>SNEAKER COMPANY</p>
                     <h1 className='text-3xl font-bold '>{productDetail?.title}</h1>
                     <p className='my-5 text-sm'>{productDetail?.description}</p>
                     <p className='font-bold text-2xl mb-2 '> ${productDetail?.price} <span className='bg-[#ffede0] px-2 py-1 rounded ml-4 text-[#ff7d1a]'>50%</span></p>
